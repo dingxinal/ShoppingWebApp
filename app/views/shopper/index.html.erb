@@ -1,4 +1,4 @@
-<% if notice %>
+	<% if notice %>
   <p id="notice"><%= notice %></p>
 <% end %>
 <h1>Stand Catalog</h1>
@@ -9,7 +9,7 @@
     <h3><%= product.name %></h3>
     <p><%= product.description %></p><br>
     <div class="price price_line"><%= product.price %></div>
-    <%= button_to 'Add to Cart', lineitems_path(product_id: product), class: 'add_to_cart' %>
+    <%= button_to 'Add to Cart', lineitems_path(product_id: product), class: 'add_to_cart', remote: true %>
   </div>
 <% end %>
 

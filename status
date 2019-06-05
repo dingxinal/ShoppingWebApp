@@ -1,0 +1,5 @@
+== 20190605101650 ChangePasswordDigestToDigestInUser: migrating ===============
+-- change_column(:users, :password_digest, :digest)
+   -> 0.0047s
+== 20190605101650 ChangePasswordDigestToDigestInUser: migrated (0.0048s) ======
+
