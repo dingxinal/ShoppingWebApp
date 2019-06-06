@@ -15,3 +15,5 @@ stand_list = [
 stand_list.each do |name, description, image, price|
   Product.create( name: name, description: description, image: image, price: price )
 end
+
+User.create(name: '1', password: '1')
