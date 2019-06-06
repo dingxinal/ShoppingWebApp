@@ -1,21 +1,25 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<h3>Items in your shopping cart</h3>
-
-<table>
+<table class="table table-sm table-dark">
   <% @cart.lineitems.each do |item|%>
     <tr>
-      <td><%=item.quantity %></td>
+      <td scope="row"><%=item.quantity %></td>
       <td><%=item.product.name %></td>
+      <td><%=number_to_currency(item.item_total_price) %></td>
     </tr>
   <%end%>
-  <tr class='total_line'>
-    <td colspan = "2">Total</td>
-    <td><%=@cart.total_price%></td>
+  <tr>
+    <th colspan = "2">Total</th>
+    <th><%=number_to_currency(@cart.total_price)%></th>
+  </tr>
+  <tr> 
+    <th>
+    <%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-dark' %>
+    </th>
+    <th><%= button_to 'Check Out', new_order_path, method: :get , class: 'btn btn-sm btn-dark float-right'%>
+    </th>
   </tr>
 </table>
 
-<%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'} %>
-<%= button_to 'Check Out', new_order_path, method: :get %>
 

@@ -4,17 +4,16 @@
  *= require_self
  */
 
-#banner {
-background: #efc780;
-padding: 10px;
-border-bottom: 2px solid;
-font: 40px/40px "Arial";
-color: #282;
-text-align: center;
-img {
-float: left;
+@import "bootstrap";
+
+html,body{
+	height: 100%;
+	background-image: image-url("jojo.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-}
+
 
 #notice {
 color: #000 !important;
@@ -27,35 +26,18 @@ font: bold smaller sans-serif;
 
 
 #columns {
-background: #141;
-#main {
-margin-left: 17em;
-padding: 1em;
-background: white;
-}
-#side {
-float: left;
-padding: 1em 2em;
-width: 13em;
-background: #141;
-form, div {display: inline;}
-input {font-size: small;}
-#cart {font-size: small; color: white;
-table {
-border-top: 1px dotted #599;
-border-bottom: 1px dotted #599;
-margin-bottom: 10px;
-}
-}
-ul {
-padding: 0;
-li {
-list-style: none;
-a {
-color: #bfb;
-font-size: small;
-}
-}
-}
-}
+	#main {
+		margin-left: 17em;
+		padding: 1em;
+		background-color: rgba(255, 255, 255, 0.9);
+		height: 100%;
+	}
+	#side {
+		float: left;
+		width: 17em;
+		border-style: groove;
+		border-width: 0px 1px 0px 0px;
+		form, div {display: inline;}
+		input {font-size: small;}
+	}
 }

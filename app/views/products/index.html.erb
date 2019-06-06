@@ -3,7 +3,7 @@
 <% end %>
 <h1>Products</h1>
 
-<table>
+<table class="table">
   
   <tbody>
     <% @products.each do |product| %>
@@ -11,10 +11,10 @@
         <td><%= image_tag(product.image, :class => "list_image")%></td>
         <td class="list_description"><dt><%= product.name %></dt>
         <dl><%= product.description %></dl><br>
-        <dd><%= product.price %></dd></td>
-        <td class="list_actions"><%= link_to 'Show', product %><br>
-        <%= link_to 'Edit', edit_product_path(product) %><br>	
-        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <dd><%= number_to_currency(product.price) %></dd></td>
+        <td class="list_actions"><%= link_to 'Show', product, {class: 'btn btn-sm btn-outline-dark'} %><br><br>
+        <%= link_to 'Edit', edit_product_path(product), {class: 'btn btn-sm btn-outline-dark'}%><br><br>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-sm btn-outline-dark' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path,{class: 'btn btn-success'} %>

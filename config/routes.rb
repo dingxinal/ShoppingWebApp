@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'side/questions'
+  get 'side/news'
+  get 'side/contact'
+  get 'search/index'
   get 'access/new'
   get 'access/create'
   get 'access/destroy'
@@ -17,5 +21,7 @@ Rails.application.routes.draw do
   post '/login', to: 'access#create'
   get '/logout', to: 'access#destroy'
   post '/logout', to: 'access#destroy'
+  get '/search', to: 'search#index'
+  post '/search', to: 'search#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

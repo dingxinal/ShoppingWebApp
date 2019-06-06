@@ -1,0 +1,21 @@
+<h1>Search</h1>
+
+<% if params[:query] == nil %>
+	????
+	<% params[:query] = "" %>
+<% end %> 
+
+<% @searchResults = Product.where('name like ? or description like ? or price like ?',"%"+params[:query]+"%", "%"+params[:query]+"%", "%"+params[:query]+"%").all %>
+<% if @searchResults.size == 0 %>
+	<h1>No Result Found</h1>
+<% else %> 
+	<% @searchResults.each do |product| %>
+	    <div class="entry">
+	      <%= image_tag(product.image)%>
+	    <h3><%= product.name %></h3>
+	    <p><%= product.description %></p><br>
+	    <div class="price price_line"><%= product.price %></div>
+	    <%= button_to 'Add to Cart', lineitems_path(product_id: product), class: 'add_to_cart', remote: true %>
+	    </div>
+	<% end %>
+<% end %>
