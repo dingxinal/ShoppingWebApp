@@ -5,7 +5,7 @@
 	<% params[:query] = "" %>
 <% end %> 
 
-<% @searchResults = Product.where('name like ? or description like ?',"%"+params[:query]+"%", "%"+params[:query]+"%").all %>
+<% @searchResults = Product.where('name LIKE ? or description LIKE ?','%'+params[:query]+'%', '%'+params[:query]+'%').all %>
 <% if @searchResults.size == 0 %>
 	<h1>No Result Found</h1>
 <% else %> 
